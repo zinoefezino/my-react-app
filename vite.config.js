@@ -1,9 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+const repoName = "my-react-app";
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  base: process.env.VERCEL ? "/" : `/${repoName}/`,
   plugins: [react()],
   build: {
     rollupOptions: {
